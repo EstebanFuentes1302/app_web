@@ -16,7 +16,8 @@ const expresiones = {
     codigo: /^(?!1000)[1-9][0-9][0-9][0-9]$/,
     usuario: /^\w+(\S?\w+?)+$/,
     password: /^(([\w!@#\.])+){4,}$/,
-    dni: /^\d{8}$/
+    dni: /^\d{8}$/,
+    direccion: /^[\w\s\d.,#-]+$/
 }
 
 const camposBuscar = {
@@ -25,7 +26,10 @@ const camposBuscar = {
 
 const camposModificar = {
     nombre: true,
-    correo: true,
+    apellido: true,
+    direccion: true,
+    escuela: true,
+    dni: true,
     telefono: true
 }
 
@@ -72,27 +76,38 @@ const validarFormModificarCliente = (e) => {
             }
         break;
         case "txtDireccion":
-            if(expresiones.form_nombre.test(e.target.value)){
-                document.getElementById('txtApellido').classList.remove('border-danger');
-                document.getElementById('txtErrorApellido').classList.add('d-none');
-                camposModificar['apellido']=true;
+            if(expresiones.direccion.test(e.target.value)){
+                document.getElementById('txtDireccion').classList.remove('border-danger');
+                document.getElementById('txtErrorDireccion').classList.add('d-none');
+                camposModificar['direccion']=true;
             }else{
-                document.getElementById('txtApellido').classList.add('border-danger');
-                document.getElementById('txtErrorApellido').classList.remove('d-none');
-                camposModificar['apellido']=false;
+                document.getElementById('txtDireccion').classList.add('border-danger');
+                document.getElementById('txtErrorDireccion').classList.remove('d-none');
+                camposModificar['direccion']=false;
+            }
+        break;
+        case "txtEscuela":
+            if(expresiones.form_nombre.test(e.target.value)){
+                document.getElementById('txtEscuela').classList.remove('border-danger');
+                document.getElementById('txtErrorEscuela').classList.add('d-none');
+                camposModificar['escuela']=true;
+            }else{
+                document.getElementById('txtEscuela').classList.add('border-danger');
+                document.getElementById('txtErrorEscuela').classList.remove('d-none');
+                camposModificar['escuela']=false;
             }
         break;
         case "txtTelefono":
             if(expresiones.celular.test(e.target.value)){
-                document.getElementById('txtTelefono').classList.remove('txtFieldFormIncorrecto');
-                document.getElementById('txtErrorTelefono').classList.remove('txtErrorShow');
+                document.getElementById('txtTelefono').classList.remove('border-danger');
+                document.getElementById('txtErrorTelefono').classList.add('d-none');
                 camposModificar['telefono']=true;
             }else{
-                document.getElementById('txtTelefono').classList.add('txtFieldFormIncorrecto');
-                document.getElementById('txtErrorTelefono').classList.add('txtErrorShow');
+                document.getElementById('txtTelefono').classList.add('border-danger');
+                document.getElementById('txtErrorTelefono').classList.remove('d-none');
                 camposModificar['telefono']=false;
             }
-            break;
+        break;
     }
 }
 
@@ -200,9 +215,9 @@ $('#formBuscarSolicitante').submit(function(e){
                             <div class="d-flex">
                                 <div>
                                     <select id="sEstadoCliente" class="form-select">
-                                        <option value="Ejecución">Activo</option>
-                                        <option value="Devuelto">Suspendido</option>
-                                        <option value="Devuelto">Deudor</option>
+                                        <option value="Activo">Activo</option>
+                                        <option value="Suspendido">Suspendido</option>
+                                        <option value="Deudor">Deudor</option>
                                     </select>
                                 </div>
                             </div>
@@ -270,8 +285,8 @@ $('#formModificarSolicitante').submit(function(e){
 
     //let dataModificar={codigo, nombre, cantidad}
     //console.log(JSON.stringify(dataModificar));
-    //console.log(codigo);
-    if(camposModificar['nombre'] && camposModificar['correo'] && camposModificar['telefono']){
+    console.log(camposModificar);
+    if(camposModificar['nombre'] && camposModificar['apellido'] && camposModificar['direccion'] && camposModificar['escuela'] && camposModificar['telefono']){
         $.ajax({
             url: '../controlador/CtrlModificarCliente.php',
             type: 'POST',

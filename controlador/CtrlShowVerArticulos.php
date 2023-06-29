@@ -1,8 +1,10 @@
 <?php
     session_start();
-    $sesion=$_SESSION['usuario'];
-    $action = $_POST['action'];
-    if(!isset($action)){
+    $sesion = $_SESSION['usuario'];
+    
+    if(isset($_POST['action'])){
+        $action = $_POST['action'];
+    }else{
         $action = '';
     }
 

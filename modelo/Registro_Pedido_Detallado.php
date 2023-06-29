@@ -31,7 +31,7 @@
         
         public function getArticulosPedido($codigo_pedido){
             $con = mysqli_connect('localhost','root','','db_app_dw'); 
-            $sql = "select * from Rel_Pedido_Articulo where codigo_pedido='$codigo_pedido'";
+            $sql = "select * from registro_pedido_detallado where cod_registro_pedido='$codigo_pedido'";
             $result = mysqli_query($con, $sql);
             if(mysqli_num_rows($result) > 0){
                 return($result);

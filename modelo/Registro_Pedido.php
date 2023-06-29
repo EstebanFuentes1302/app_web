@@ -50,7 +50,7 @@
 
         public function devolverPedido($codigo_pedido){
             $con = mysqli_connect('localhost','root','','db_app_dw'); 
-            $sql = "update registro_pedido set estado='Devuelto' where codigo_pedido='$codigo_pedido'";
+            $sql = "update registro_pedido set estado_pedido='Devuelto' where cod_registro_pedido='$codigo_pedido'";
             $query = mysqli_query($con, $sql);
             if($query){
                 return(true);
@@ -83,6 +83,13 @@
         public function getPedidos(){
             $con = mysqli_connect('localhost','root','','db_app_dw'); 
             $sql = "select * from registro_pedido";
+            $result = mysqli_query($con,$sql);
+            return($result);
+        }
+
+        public function getPedidosReporte(){
+            $con = mysqli_connect('localhost','root','','db_app_dw'); 
+            $sql = "SELECt * FROM registro_pedido WHERE fecha_inicio >= DATE_SUB(CURDATE(), INTERVAL 1 MONTH) AND fecha_inicio <= CURDATE()";
             $result = mysqli_query($con,$sql);
             return($result);
         }

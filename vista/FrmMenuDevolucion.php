@@ -65,7 +65,7 @@
                         <div class="col-auto col-md-10 min-vh-100 justify-content-center m-5 justify-content-center">
                                 <p class="h1 text-center mb-3">Gestión de Devolución</p>
                                 <div class="d-grid gap-2 col-6 mx-auto">
-                                    <a class="btn btn-primary mb-3" href="../controlador/CtrlShowRegistrarDevolucion.php">Devolver Pedido</a>
+                                    <a class="btn btn-primary mb-3 btn-lg" href="../controlador/CtrlShowRegistrarDevolucion.php">Devolver Pedido</a>
                                 </div>
                         </div>
                     </div>

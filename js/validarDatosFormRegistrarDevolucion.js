@@ -9,8 +9,8 @@ const expresiones = {
     form_cantidad: /^\d+$/,
     celular: /9\d{2}[\s-]?\d{3}[\s-]?\d{3}/,
     correo: /^[\w-._]+@\w+\.[a-zA-Z]+$/,
-    codigo_solicitante: /^[1-9]\d{7}$/,
-    codigo: /^(?!1000)[1-9][0-9][0-9][0-9]$/,
+    codigo_solicitante: /^\d+$/,
+    codigo: /^\d+$/,
     usuario: /^\w+(\S?\w+?)+$/,
     password: /^(([\w!@#\.])+){4,}$/,
 }
@@ -30,15 +30,16 @@ const camposRegistrar = {
 }
 
 const validarFormBuscarDevolucion = (e) => {
+    console.log(e.target.name);
     switch(e.target.name){
         case "txtCodigoBuscar":
             if(expresiones.codigo.test(e.target.value)){
-                document.getElementById('txtCodigoBuscar').classList.remove('txtFieldFormIncorrecto');
-                document.getElementById('txtErrorCodigo').classList.remove('txtErrorShow');
+                document.getElementById('txtCodigoBuscar').classList.remove('border-danger');
+                document.getElementById('txtErrorCodigo').classList.add('d-none');
                 camposBuscar['codigo']=true;
             }else{
-                document.getElementById('txtCodigoBuscar').classList.add('txtFieldFormIncorrecto');
-                document.getElementById('txtErrorCodigo').classList.add('txtErrorShow');
+                document.getElementById('txtCodigoBuscar').classList.add('border-danger');
+                document.getElementById('txtErrorCodigo').classList.remove('d-none');
                 camposBuscar['codigo']=false;
             }
             break;
@@ -51,29 +52,29 @@ formBuscarDevolucionInputs.forEach((input)=>{
 });
 
 const validarFormRegistrarDevolucion = (e) => {
-    //console.log(e.target.name);
+    //console.log(e.target.value);
     switch(e.target.name){
         case "fecha_devolucion":
             //console.log(Date.parse($('#date').val()));
             if(Date.parse($('#fecha_devolucion').val())){
-                document.getElementById('fecha_devolucion').classList.remove('dateFormIncorrecto');
-                document.getElementById('txtErrorFecha').classList.remove('txtErrorShow');
+                document.getElementById('fecha_devolucion').classList.remove('border-danger');
+                document.getElementById('txtErrorFecha').classList.add('d-none');
                 camposRegistrar['date']=true;
             }else{
-                document.getElementById('fecha_devolucion').classList.add('dateFormIncorrecto');
-                document.getElementById('txtErrorFecha').classList.add('txtErrorShow');
+                document.getElementById('fecha_devolucion').classList.add('border-danger');
+                document.getElementById('txtErrorFecha').classList.remove('d-none');
                 camposRegistrar['date']=false;
             }
             break;
         case "txtaDetalles":
-            let n = $('#txtaDetalles').val(); 
-            if(String.length(n)<=100){
-                document.getElementById('txtaDetalles').classList.remove('dateFormIncorrecto');
-                document.getElementById('txtaErrorDetalles').classList.remove('txtErrorShow');
+            //console.log(e.target.value.length)
+            if(e.target.value.length<=100){
+                document.getElementById('txtaDetalles').classList.remove('border-danger');
+                document.getElementById('txtaErrorDetalles').classList.add('d-none');
                 camposRegistrar['txtarea']=true;
             }else{
-                document.getElementById('txtaDetalles').classList.add('dateFormIncorrecto');
-                document.getElementById('txtaErrorDetalles').classList.add('txtErrorShow');
+                document.getElementById('txtaDetalles').classList.add('border-danger');
+                document.getElementById('txtaErrorDetalles').classList.remove('d-none');
                 camposRegistrar['txtarea']=false;
             }
             break;
@@ -83,6 +84,7 @@ const validarFormRegistrarDevolucion = (e) => {
 $('#formBuscarDevolucion').submit(function(e){
     e.preventDefault();
     codigo = $('#txtCodigoBuscar').val();
+    
     //console.log(codigo);
     if(camposBuscar['codigo']){
         $.ajax({
@@ -111,7 +113,7 @@ $('#formBuscarDevolucion').submit(function(e){
                                 <span class="txtForm">Código de Pedido</span>
                             </div>
                             <div class="div-input-form-row">
-                                <input class="txtFieldFormReadonly" readonly type="text" name="txtCodigo" id="txtCodigo" value="${pedido.codigo_pedido}">
+                                <input class="txtFieldFormReadonly" readonly style="background-color:lightgray;" type="text" name="txtCodigo" id="txtCodigo" value="${pedido.cod_registro_pedido}">
                             </div>
                         </div>
                         <div class="div-form-row">
@@ -119,7 +121,7 @@ $('#formBuscarDevolucion').submit(function(e){
                                 <span class="txtForm">Código de Solicitante</span>
                             </div>
                             <div class="div-input-form-row">
-                                <input class="txtFieldFormReadonly" readonly type="text" name="txtCodigoSolicitante" id="txtCodigoSolicitante" value="${pedido.codigo_solicitante}">
+                                <input class="txtFieldFormReadonly" style="background-color:lightgray;" readonly type="text" name="txtCodigoSolicitante" id="txtCodigoSolicitante" value="${pedido.cod_cliente}">
                             </div>
                         </div>
                         <div class="div-form-row">
@@ -127,15 +129,23 @@ $('#formBuscarDevolucion').submit(function(e){
                                 <span class="txtForm">Estado</span>
                             </div>
                             <div class="div-input-form-row">
-                                <input class="txtFieldFormReadonly" readonly type="text" name="txtEstado" id="txtEstado" value="${pedido.estado}">
+                                <input class="txtFieldFormReadonly" style="background-color:lightgray;" readonly type="text" name="txtEstado" id="txtEstado" value="${pedido.estado_pedido}">
                             </div>
                         </div>
                         <div class="div-form-row">
                             <div class="div-txt-form-row">
-                                <span class="txtForm">Fecha de Pedido</span>
+                                <span class="txtForm">Fecha de Inicio</span>
                             </div>
                             <div class="div-input-form-row">
-                                <input class="txtFieldFormReadonly" readonly type="text" name="txtFecha" id="txtFecha" value="${pedido.fecha_pedido}">
+                                <input class="txtFieldFormReadonly" style="background-color:lightgray;" readonly type="text" name="txtFecha" id="txtFecha" value="${pedido.fecha_inicio}">
+                            </div>
+                        </div>
+                        <div class="div-form-row">
+                            <div class="div-txt-form-row">
+                                <span class="txtForm">Fecha de Vencimiento</span>
+                            </div>
+                            <div class="div-input-form-row">
+                                <input class="txtFieldFormReadonly" style="background-color:lightgray;" readonly type="text" name="txtFechaVencimiento" id="txtFechaVencimiento" value="${pedido.fecha_vencimiento}">
                             </div>
                         </div>
                         <div class="div-form-row">
@@ -146,7 +156,7 @@ $('#formBuscarDevolucion').submit(function(e){
                                 <input class="dateForm" type="date" name="fecha_devolucion" id="fecha_devolucion">
                             </div>
                         </div>
-                        <p class="txtError" id="txtErrorFecha">La fecha está incompleta</p>
+                        <p class="d-none text-danger" id="txtErrorFecha">La fecha está incompleta</p>
                         <div class="div-form-row">
                             <div class="div-txt-form-row">
                                 <span class="txtForm">Detalles</span>
@@ -155,7 +165,7 @@ $('#formBuscarDevolucion').submit(function(e){
                                 <textarea class="txtAreaForm" name="txtaDetalles" id="txtaDetalles"></textarea>
                             </div>
                         </div>
-                        <p class="txtError" id="txtaErrorDetalles">Ha excedido el límite de caracteres</p>
+                        <p class="d-none text-danger" id="txtaErrorDetalles">Ha excedido el límite de caracteres</p>
                         <input class="button-submit" type="submit" name="btnDevolver" id="btnDevolver" value="Devolver Pedido">
                     `;
                     document.getElementById('divDevolverPedido').innerHTML = template;

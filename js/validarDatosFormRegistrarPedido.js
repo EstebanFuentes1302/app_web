@@ -298,7 +298,7 @@ function buscarSolicitante(){
             success: function(response){
                 console.log(response);
                 if(JSON.parse(response) != 'null'){
-                    document.getElementById('tblSolicitante').classList.remove('d-none');
+                    //document.getElementById('tblSolicitante').classList.remove('d-none');
                     let cliente = JSON.parse(response);
                     codigo_solicitante = cliente.cod_cliente;
                     let template = '';

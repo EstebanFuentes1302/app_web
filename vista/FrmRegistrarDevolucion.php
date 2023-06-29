@@ -74,7 +74,6 @@
                                 </div>
                                 <p class="text-danger d-none" id="txtErrorCodigo">El código de pedido debe ser un número</p>
                             </form>
-                            <hr class="hr">
                             <form id="formRegistrarDevolucion" method="post">
                                 <div id="divDevolverPedido" class="div-Form">
                                     

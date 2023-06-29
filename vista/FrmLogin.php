@@ -13,7 +13,7 @@
             </head>
 
             <body>
-                <form id="formIniciarSesion" method="post" action="controlador/CtrlValidarLogin.php" class="justify-content-center">
+                <form id="formIniciarSesion" method="post" action="<?php $_SERVER['DOCUMENT_ROOT']?>/app_web/controlador/CtrlValidarLogin.php" class="justify-content-center">
                     <h1 class="text-center my-4">Almacén - UNMSM</h1>
                     <div class="form-outline  col-4 mx-auto">
                         <input type="text" id="form2Example1" class="form-control" name="txtUsuario" id="txtUsuario"/>
