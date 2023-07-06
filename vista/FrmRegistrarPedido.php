@@ -68,32 +68,41 @@
                                             <div class="row py-3 bg-light">
                                                 <div class="col-6 px-4 py-2">
                                                     <h1>Artículos</h1>
-                                                    <div class="d-flex">
-                                                        <span class="fs-6 mb-1">Código de articulo</span>
-                                                    </div>
-                                                    <div class="d-flex">
-                                                        <div class="div-input-form-row div-input-form-row-small">
-                                                        <input class="form-control" type="text" name="txtCodigoArticulo" id="txtCodigoArticulo">
-                                                        </div>
-                                                        <button class="ms-3 btn border" type="button" name="btnBuscar" id="btnBuscar" onClick="buscarArticulo()">
-                                                            <img class="icon-buscar" src="../img/icons/lupa.png" style="height: 20px;">
-                                                        </button>
-                                                    </div>
-                                                    
-                                                    <p class="d-none text-danger my-1" id="txtErrorCodigoArticulo">El código del artículo debe ser un número</p>
-                                                    <div class="d-flex">
-                                                        <span class="fs-6 mt-2 mb-1">Cantidad</span>
-                                                    </div>
-                                                    <div class="d-flex wrap">
+                                                    <div class="d-flex mt-2">
                                                         <div>
-                                                            <input class="form-control" type="text" name="txtCantidadArticulo" id="txtCantidadArticulo">
+                                                            <div class="d-flex">
+                                                                <span class="fs-6 mb-1">Código de articulo</span>
+                                                            </div>
+                                                            <div class="d-flex">
+                                                                <div class="div-input-form-row div-input-form-row-small">
+                                                                <input class="form-control" type="text" name="txtCodigoArticulo" id="txtCodigoArticulo">
+                                                                </div>
+                                                            </div>
+                                                            <p class="d-none text-danger my-1" id="txtErrorCodigoArticulo">El código del artículo debe ser un número</p>
                                                         </div>
-                                                        <button type="button" style="width: 140px;" class="btn border ms-3" name="btnVerArticulos" id="btnVerArticulos" title="Ver Artículos" onClick="verArticulos()">
-                                                            <img class="icon-menu" src="../img/icons/tabla.png" style="height: 20px;"> Ver Articulos
-                                                        </button>
+                                                        <div class="ms-3">
+                                                            <div class="d-flex">
+                                                                <span class="fs-6 mb-1">Cantidad</span>
+                                                            </div>
+                                                            <div class="d-flex wrap">
+                                                                <div>
+                                                                    <input class="form-control" type="text" name="txtCantidadArticulo" id="txtCantidadArticulo">
+                                                                </div>
+                                                                <button class="ms-3 btn border" type="button" name="btnBuscar" id="btnBuscar" onClick="buscarArticulo()">
+                                                                    <img class="icon-buscar" src="../img/icons/agregar.png" style="height: 20px;">
+                                                                    Agregar
+                                                                </button>
+                                                            </div>
+                                                            <p class="d-none text-danger my-1" id="txtErrorCantidad">La cantidad ingresada es incorrecta</p>
+
+                                                        </div>
+                                                        
                                                     </div>
-                                                    <p class="d-none text-danger" id="txtErrorCantidad">La cantidad ingresada es incorrecta</p>
                                                     
+                                                    <button type="button" style="width: 140px;" class="btn border mt-2" name="btnVerArticulos" id="btnVerArticulos" title="Ver Artículos" onClick="verArticulos()">
+                                                        <img class="icon-menu" src="../img/icons/tabla.png" style="height: 20px;"> Ver Articulos
+                                                    </button>
+
                                                     <div id="divArticulo">
                                                         <table id="tblArticulos" class="table d-none mt-3">
                                                             <tbody id="tbodyArticulos">
@@ -118,7 +127,8 @@
                                                                 <input class="form-control" type="text" name="txtCodigoSolicitante" id="txtCodigoSolicitante">
                                                             </div>
                                                             <button class="ms-3 btn border" type="button" name="btnBuscar" id="btnBuscar" onClick="buscarSolicitante()">
-                                                                <img src="../img/icons/lupa.png" style="height: 20px;">
+                                                                <img src="../img/icons/agregar.png" style="height: 20px;">
+                                                                Agregar
                                                             </button>
                                                         </div>
                                                         
@@ -129,8 +139,8 @@
                                                             <img class="icon-menu" src="../img/icons/tabla.png" style="height: 20px;"> Ver Clientes
                                                         </button>    
                                                     </div>
-                                                    <div id="divSolicitante">
-                                                        <table id="tblSolicitante" class="table mt-3 d-none">
+                                                    <div id="divSolicitante" class="mt-3 d-none">
+                                                        <table id="tblSolicitante" class="table">
                                                             <tbody id="tbodySolicitante">
                                                                 <tr>
                                                                 <th class="txtHeader">Código</th>

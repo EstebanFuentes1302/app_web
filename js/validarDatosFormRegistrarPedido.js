@@ -298,7 +298,7 @@ function buscarSolicitante(){
             success: function(response){
                 console.log(response);
                 if(JSON.parse(response) != 'null'){
-                    //document.getElementById('tblSolicitante').classList.remove('d-none');
+                    document.getElementById('divSolicitante').classList.remove('d-none');
                     let cliente = JSON.parse(response);
                     codigo_solicitante = cliente.cod_cliente;
                     let template = '';
@@ -337,7 +337,7 @@ function buscarSolicitante(){
             
         })
     }else{
-       document.getElementById('divSolicitante').innerHTML = '';
+        document.getElementById('divSolicitante').classList.add('d-none');
         Swal.fire({
                 title: 'Error',
                 text: 'Los datos ingresados no son correctos',
