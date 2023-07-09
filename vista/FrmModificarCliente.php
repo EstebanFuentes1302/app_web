@@ -8,7 +8,7 @@
             <head>
             <meta charset="utf-8">
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-            <title>Modificar Solicitante</title>
+            <title>Modificar Cliente</title>
             </head>
 
             <body>
@@ -65,14 +65,22 @@
                                 <h1 class="h1 text-center">Modificar Cliente</h1>
                                 <form id="formBuscarSolicitante" method="post">
                                     <div class="div-buscar">
-                                        <p class="txtFormBuscar">Buscar Código</p>
-                                        <input class="txtFieldForm" name="txtCodigoBuscar" type="text" id="txtCodigoBuscar">
-                                        <button class="button-search" type="submit" name="btnBuscar" id="btnBuscar">
+                                        <p class="h4">Buscar Código</p>
+                                        <div class="d-flex">
+                                            <div>
+                                                <input class="form-control" name="txtCodigoBuscar" type="text" id="txtCodigoBuscar">                        
+                                            </div>
+                                            <button class="ms-2 btn border" type="submit" name="btnBuscar" id="btnBuscar">
                                                 <img class="icon-buscar" style="height: 20px;" src="../img/icons/lupa.png">
-                                        </button>
-                                        <button type="button" class="button-ver" name="btnVerArticulos" id="btnVerArticulos" title="Ver Artículos" onClick="verSolicitantes()">
-                                            <img class="icon-menu" src="../img/icons/tabla.png" style="height: 20px;">Ver Solicitantes
-                                        </button>
+                                            </button>
+                                            <button type="button" class="ms-1 btn border" name="btnVerArticulos" id="btnVerArticulos" title="Ver Artículos" onClick="verSolicitantes()">
+                                                <img class="icon-menu" src="../img/icons/tabla.png" style="height: 20px;"> Ver Solicitantes
+                                            </button>
+                                            
+                                        </div>
+                                        
+                                        
+                                        
                                         <p class="text-danger d-none" id="txtErrorCodigo">El código de cliente debe ser un número</p>
                                     </div>
                                 </form>

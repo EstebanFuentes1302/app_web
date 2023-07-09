@@ -28,7 +28,7 @@
                     </div>
                 </div>
                     <div class="container-fluid">
-                        <div class="row flex-nowrap">
+                        <div class="row flex-nowrap col-12">
                             <div class="bg-dark col-auto col-md-2 min-vh-100">
                                 <div class="bg-dark p-2">
                                     <a class="d-flex text-decoration-none align-items-center text-white">
@@ -61,19 +61,28 @@
                                     </ul>
                                 </div>
                             </div>
-                            <div class="col-auto col-md-10 min-vh-100 justify-content-center m-5">
-                                <div class="div-buscar">
-                                    <h1 class="h1 text-center">Retirar Artículo</h1>
-                                    <form id="formBuscarArticulo" method="post">
-                                        <p class="txtFormBuscar">Buscar Código</p>
-                                        <input class="txtFieldForm" name="txtCodigoBuscar" type="text" id="txtCodigoBuscar">
-                                        <button class="button-search" type="submit" name="btnBuscar" id="btnBuscar">
-                                            <img class="icon-buscar" src="../img/icons/lupa.png" style="height: 20px;">
-                                        </button>
-                                        <button type="button" class="button-ver" name="btnVerArticulos" id="btnVerArticulos" title="Ver Artículos" onClick="verArticulos()">
-                                            <img class="icon-menu" src="../img/icons/tabla.png" style="height: 20px;">Ver Articulos
-                                        </button>
-                                        <p class="text-danger d-none" id="txtErrorCodigo">El código de artículo debe ser un número</p>
+                            <div class="col-auto min-vh-100 justify-content-center m-5">
+                            <div class="div-buscar">
+                                    <h1 class="h2">Retirar Artículo</h1>
+                                    <form id="formBuscarArticulo" method="post" class="mt-3">
+                                        <div class="d-flex">
+                                            <div>
+                                                <input class="form-control" name="txtCodigoBuscar" type="text" id="txtCodigoBuscar" placeholder="Código de Artículo">
+                                            </div>
+                                            <div class="ms-2">
+                                                <button class="btn border" type="submit" name="btnBuscar" id="btnBuscar">
+                                                    <img class="icon-buscar" src="../img/icons/lupa.png" style="height: 20px;">
+                                                </button>
+                                            </div>
+                                            <div class="ms-1">
+                                                <button type="button" class="btn border" name="btnVerArticulos" id="btnVerArticulos" title="Ver Artículos" onClick="verArticulos()">
+                                                    <img class="icon-menu" src="../img/icons/tabla.png" style="height: 20px;"> Ver Articulos
+                                                </button>
+                                            </div>
+                                            
+                                        </div>
+                                        
+                                        <p class="text-danger d-none" id="txtErrorCodigo">El código de artículo debe contener un número entre 1001 y 9999</p>
                                     </form>
                                 </div>
                                 <form id="formRetirarArticulo">

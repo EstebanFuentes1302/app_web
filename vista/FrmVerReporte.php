@@ -11,7 +11,7 @@ class FrmVerPedidos
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
         <title>Ver Pedidos</title>
         </head>
-        <body>
+        <body onload="obtenerMesActual()">
             <div class="navbar navbar-expand-lg bg-dark navbar-dark">
                 <a class="navbar-brand ms-3" href="<?php $_SERVER['DOCUMENT_ROOT']?>/app_web/controlador/CtrlShowMenuPrincipal.php">ALMACÉN UNMSM - FACULTAD DE INGENIERÍA DE SISTEMAS E INFORMÁTICA</a>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -63,10 +63,27 @@ class FrmVerPedidos
                         </div>
                         <div class="col-auto col-md-10 min-vh-100 justify-content-center px-4 py-2">
                             
-                            <h1 class="h1 mb-3 text-center">Pedidos Registrados</h1>
+                            <h1 class="h1 mb-3 text-center">Reporte de Pedidos</h1>
+                            <script>
+                                function obtenerMesActual() {
+                                    var fecha = new Date();
+                                    var mes = fecha.getMonth();
+                                    var mesesDelAño = [
+                                        "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+                                        "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
+                                    ];
+                                    var mesActual = mesesDelAño[mes];
+                                    document.getElementById("mesActual").textContent = mesActual;
+                                }
+                            </script>
+                            <div>
+                                <p class="fs-5"><b>Mes: </b><span id="mesActual"></span></p>
+                            </div>
+                            
                             <button class="btn border btn-success mb-3" onclick="exportarExcel('xlsx','Reporte-Pedidos-Mes')">
                                 Exportar Reporte
-                            </button> 
+                            </button>
+                            
                             <table class="table table-striped" id="tblReporte">
                                 <tr>
                                     <td class="txtHeader" width="70px" align="center" valign="middle">Código de Pedido</td>

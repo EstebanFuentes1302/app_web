@@ -64,45 +64,51 @@
                             <div class="col-auto col-md-10 min-vh-100 justify-content-center m-3">
                                 <p class="h1 text-center mb-3">Registrar Pedido</p>
                                     <form id="formRegistrarPedido" method="post">
-                                        <div class="container">
+                                        <div>
                                             <div class="row py-3 bg-light">
                                                 <div class="col-6 px-4 py-2">
                                                     <h1>Artículos</h1>
                                                     <div class="d-flex mt-2">
                                                         <div>
-                                                            <div class="d-flex">
-                                                                <span class="fs-6 mb-1">Código de articulo</span>
+                                                            <div class="d-flex mb-1">
+                                                                <span class="fs-6">Código de articulo</span>
                                                             </div>
                                                             <div class="d-flex">
                                                                 <div class="div-input-form-row div-input-form-row-small">
-                                                                <input class="form-control" type="text" name="txtCodigoArticulo" id="txtCodigoArticulo">
+                                                                    <input class="form-control" type="text" name="txtCodigoArticulo" id="txtCodigoArticulo">
                                                                 </div>
+                                                                
                                                             </div>
-                                                            <p class="d-none text-danger my-1" id="txtErrorCodigoArticulo">El código del artículo debe ser un número</p>
+                                                            <p class="d-none text-danger my-1 text-wrap" id="txtErrorCodigoArticulo">El código del debe ser un número</p>
                                                         </div>
                                                         <div class="ms-3">
                                                             <div class="d-flex">
                                                                 <span class="fs-6 mb-1">Cantidad</span>
                                                             </div>
-                                                            <div class="d-flex wrap">
+                                                            <div class="d-flex">
                                                                 <div>
                                                                     <input class="form-control" type="text" name="txtCantidadArticulo" id="txtCantidadArticulo">
                                                                 </div>
-                                                                <button class="ms-3 btn border" type="button" name="btnBuscar" id="btnBuscar" onClick="buscarArticulo()">
-                                                                    <img class="icon-buscar" src="../img/icons/agregar.png" style="height: 20px;">
-                                                                    Agregar
-                                                                </button>
+                                                                
                                                             </div>
                                                             <p class="d-none text-danger my-1" id="txtErrorCantidad">La cantidad ingresada es incorrecta</p>
 
                                                         </div>
-                                                        
+                                                    </div>
+                                                    <div class="d-flex mt-3">
+                                                        <div>
+                                                            <button class="btn border" type="button" name="btnBuscar" id="btnBuscar" onClick="buscarArticulo()">
+                                                                <img class="icon-buscar" src="../img/icons/agregar.png" style="height: 20px;">
+                                                                Agregar
+                                                            </button>
+                                                        </div>
+                                                        <div>
+                                                            <button type="button" style="width: 140px;" class="btn border ms-2" name="btnVerArticulos" id="btnVerArticulos" title="Ver Artículos" onClick="verArticulos()">
+                                                                <img class="icon-menu" src="../img/icons/tabla.png" style="height: 20px;"> Ver Articulos
+                                                            </button>
+                                                        </div>
                                                     </div>
                                                     
-                                                    <button type="button" style="width: 140px;" class="btn border mt-2" name="btnVerArticulos" id="btnVerArticulos" title="Ver Artículos" onClick="verArticulos()">
-                                                        <img class="icon-menu" src="../img/icons/tabla.png" style="height: 20px;"> Ver Articulos
-                                                    </button>
-
                                                     <div id="divArticulo">
                                                         <table id="tblArticulos" class="table d-none mt-3">
                                                             <tbody id="tbodyArticulos">

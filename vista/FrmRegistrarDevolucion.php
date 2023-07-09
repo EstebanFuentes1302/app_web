@@ -63,14 +63,20 @@
                             <h1 align="center">Devolver Pedido</h1>
                             <form id="formBuscarDevolucion">
                                 <div class="div-buscar">
-                                    <p class="txtFormBuscar">Buscar Pedido</p>
-                                    <input class="txtFieldForm"  name="txtCodigoBuscar" type="text" id="txtCodigoBuscar" placeholder="Código de Pedido">
-                                    <button class="button-search" id="btnBuscar" class="button-submit" type="submit">
-                                        <img class="icon-buscar" src="../img/icons/lupa.png" style="height: 20px;">
-                                    </button>
-                                    <button type="button" class="button-ver" name="btnVerPedidos" id="btnVerPedidos" title="Ver Pedidos" onClick="verPedidos()">
-                                        <img class="icon-menu" src="../img/icons/tabla.png" style="height: 20px;"> Ver Pedidos
-                                    </button>
+                                    <p class="h3">Buscar Pedido</p>
+                                    <div class="d-flex">
+                                        <div>
+                                            <input class="form-control"  name="txtCodigoBuscar" type="text" id="txtCodigoBuscar" placeholder="Código de Pedido">
+                                        </div>
+                                        
+                                        <button class="btn border ms-2" id="btnBuscar" class="button-submit" type="submit">
+                                            <img class="icon-buscar" src="../img/icons/lupa.png" style="height: 20px;">
+                                        </button>
+                                        <button type="button" class="btn border ms-1" name="btnVerPedidos" id="btnVerPedidos" title="Ver Pedidos" onClick="verPedidos()">
+                                            <img class="icon-menu" src="../img/icons/tabla.png" style="height: 20px;"> Ver Pedidos
+                                        </button>
+                                    </div>
+                                    
                                 </div>
                                 <p class="text-danger d-none" id="txtErrorCodigo">El código de pedido debe ser un número</p>
                             </form>

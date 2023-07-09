@@ -65,33 +65,44 @@
                                 <div class="d-flex">
                                     <div class="div-Form">
                                         <form id="formRegistrarArticulo" method="post">
-                                            <div class="div-form-row">
-                                                <div class="div-txt-form-row">
-                                                    <span class="txtForm">Nombre de artículo</span>
+                                            <div>
+                                                <div class="d-flex">
+                                                    <span>Nombre de artículo</span>
                                                 </div>
-                                                <div class="div-input-form-row">
-                                                    <input class="txtFieldForm" type="text" name="txtNombreArticulo" id="txtNombreArticulo">
+                                                <div class="d-flex">
+                                                    <div>
+                                                        <input class="form-control" type="text" name="txtNombreArticulo" id="txtNombreArticulo">
+                                                    </div>
                                                 </div>
+                                                <p class="text-danger d-none mt-1 mb-2" id="txtErrorNombre">El nombre del artículo debe contener al menos 2 dígitos</p>
                                             </div>
-                                            <p class="text-danger d-none" id="txtErrorNombre">El nombre del artículo debe contener al menos 2 dígitos</p>
+                                            
                                             <!-- <p class="txtError" id="txtErrorNombreLength">La cantidad máxima de caracteres es de 50</p> -->
                                             <div class="mt-2">
                                                 <div class="div-txt-form-row">
-                                                    <span class="txtForm">Cantidad en Stock</span>
+                                                    <span>Cantidad en Stock</span>
                                                 </div>
-                                                <div class="div-input-form-row">
-                                                    <input class="txtFieldForm" type="text" name="txtCantidad" id="txtCantidad">
+                                                <div class="d-flex">
+                                                    <div>
+                                                        <input class="form-control" type="text" name="txtCantidad" id="txtCantidad">
+                                                    </div>
+                                                    
                                                 </div>
                                             </div>
-                                            <p class="text-danger d-none" id="txtErrorCantidad">La cantidad debe ser un número entero</p>
+                                            <p class="text-danger d-none mt-1 mb-2" id="txtErrorCantidad">La cantidad debe ser un número entero</p>
                                             <div class="mt-2">
                                                 <div class="div-txt-form-row">
                                                     <span class="txtForm">Descripción</span>
                                                 </div>
-                                                <textarea id="txtaDescripcion"></textarea>
+                                                <div class="d-flex">
+                                                    <div>
+                                                        <textarea class="form-control" id="txtaDescripcion"></textarea>
+                                                    </div>
+                                                </div>
+                                                
                                             </div>
                                             <input class="mt-3 btn border btn-primary" type="submit" name="btnRegistrarArticulo" id="btnRegistrarArticulo" value="Registrar Articulo">
-                                            <input class="mt-3 btn border" type="reset" name="btnLimpiar" id="btnLimpiar" value="Limpiar">
+                                            <input class="mt-3 ms-2 btn border" type="reset" name="btnLimpiar" id="btnLimpiar" value="Limpiar">
                                         </form>
                                     </div>
                                 </div>

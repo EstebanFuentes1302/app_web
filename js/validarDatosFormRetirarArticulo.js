@@ -39,13 +39,13 @@ const validadFormBuscarArticulo = (e) => {
 
 const validarformRetirarArticulo = (e) => {
     switch(e.target.name){
-        case "txtIngresar":
+        case "txtRetirar":
             if(expresiones.form_cantidad.test(e.target.value)){
-                document.getElementById('txtIngresar').classList.remove('border-danger');
+                document.getElementById('txtRetirar').classList.remove('border-danger');
                 document.getElementById('txtErrorCantidad').classList.add('d-none');
                 camposModificar['cantidad']=true;
             }else{
-                document.getElementById('txtIngresar').classList.add('border-danger');
+                document.getElementById('txtRetirar').classList.add('border-danger');
                 document.getElementById('txtErrorCantidad').classList.remove('d-none');
                 camposModificar['cantidad']=false;
             }
@@ -86,6 +86,9 @@ $('#formBuscarArticulo').submit(function(e){
                     let articulo = JSON.parse(response);
                     let temp = '';
                     temp = `
+                        <div class="mt-3 mb-2">
+                            <span class="fs-5">Detalles del Artículo</span>
+                        </div>
                         <div class="mt-2 border p-3">
                             <div class="d-flex">
                                 <div class="col-6">
@@ -113,7 +116,7 @@ $('#formBuscarArticulo').submit(function(e){
                         </div>
                         <div class="d-flex">
                             <div>
-                                <input class="mt-3 mb-1 form-control" type="text" name="txtIngresar" id="txtIngresar" placeholder="Ingresar cantidad">
+                                <input class="mt-3 mb-1 form-control" type="text" name="txtRetirar" id="txtRetirar" placeholder="Ingresar cantidad">
                                 <span class="text-danger d-none" id="txtErrorCantidad" name="txtErrorCantidad">La cantidad ingresada es incorrecta</span>
                             </div>
                         </div>
@@ -167,7 +170,7 @@ $('#formBuscarArticulo').submit(function(e){
 
 $('#formRetirarArticulo').submit(function(e){
     e.preventDefault();
-    let cantidad = $('#txtIngresar').val();
+    let cantidad = $('#txtRetirar').val();
 
     
     if(camposModificar['cantidad']){

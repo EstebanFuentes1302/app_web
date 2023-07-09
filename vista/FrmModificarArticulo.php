@@ -62,19 +62,26 @@
                                 </div>
                             </div>
                             <div class="col-auto col-md-10 min-vh-100 justify-content-center m-5">
-                                <div class="div-buscar">
-                                    <form id="formBuscarArticulo" method="post">
-                                        <p class="txtFormBuscar">Buscar Código</p>
-                                        <input class="txtFieldForm" name="txtCodigoBuscar" type="text" id="txtCodigoBuscar">
-                                        <button class="button-search" type="submit" name="btnBuscar" id="btnBuscar">
-                                            <img class="icon-buscar" src="../img/icons/lupa.png" style="height: 20px;">
-                                        </button>
-                                        <button type="button" class="button-ver" name="btnVerArticulos" id="btnVerArticulos" title="Ver Artículos" onClick="verArticulos()">
-                                            <img class="icon-menu" src="../img/icons/tabla.png" style="height: 20px;">Ver Articulos
-                                        </button>
-                                        <p class="text-danger d-none" id="txtErrorCodigo">El código de artículo debe contener un número entre 1001 y 9999</p>
-                                    </form>
-                                </div>
+                                    <div class="div-buscar">
+                                        <form id="formBuscarArticulo" method="post">
+                                            <p class="h3">Modificar Artículo</p>
+                                            <div class="d-flex">
+                                                <div>
+                                                    <input class="form-control" name="txtCodigoBuscar" type="text" id="txtCodigoBuscar">
+                                                </div>
+                                                <button class="btn border ms-2" type="submit" name="btnBuscar" id="btnBuscar">
+                                                    <img class="icon-buscar" src="../img/icons/lupa.png" style="height: 20px;">
+                                                </button>
+                                                <button type="button" class="btn border ms-1" name="btnVerArticulos" id="btnVerArticulos" title="Ver Artículos" onClick="verArticulos()">
+                                                    <img class="icon-menu" src="../img/icons/tabla.png" style="height: 20px;"> Ver Articulos
+                                                </button>
+                                            </div>
+                                            
+                                            
+                                            <p class="text-danger d-none" id="txtErrorCodigo">El código de artículo debe contener un número entre 1001 y 9999</p>
+                                        </form>
+                                    </div>
+                                
                                 <form id="formModificarArticulo">
                                     <div id="divForm" class="div-Form">
                 

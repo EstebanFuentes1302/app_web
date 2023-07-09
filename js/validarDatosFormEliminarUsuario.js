@@ -149,84 +149,62 @@ function buscarUsuario(){
                     
                     let template = '';
                     template += `
+                    <div class="mt-3">
                         <span class="h3">Usuario</span>
-                        <div class="div-form-row">
-                            <div class="div-txt-form-row">
-                                <span class="txtForm">Código</span>
+                    </div>
+                    
+                        <div class="mt-2 border p-3">
+                            <div class="d-flex">
+                                <div class="col-6">
+                                    <div>
+                                        <span class="fw-bold">Código: </span>
+                                        <span class="txtForm">${usuario.cod_trabajador}</span>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div>
+                                        <span class="fw-bold">Nombre: </span>
+                                        <span class="txtForm">${usuario.nombre_trabajador}</span>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="div-input-form-row">
-                                <input class="txtFieldForm" readonly style="background-color:lightgray;" type="text" name="txtCodigo" id="txtCodigo" value="${usuario.cod_trabajador}">
+                            
+                            <div class="d-flex">
+                                <div class="col-6">
+                                    <span class="fw-bold">Apellido: </span>
+                                    <span class="txtForm">${usuario.apellido_trabajador}</span>
+                                </div>
+                                <div class="col-6">
+                                    <span class="fw-bold">DNI: </span>
+                                    <span class="txtForm">${usuario.dni_trabajador}</span>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="div-form-row">
-                            <div class="div-txt-form-row">
-                                <span class="txtForm">Nombre</span>
+                            <div class="d-flex">
+                                <div class="col-6">
+                                    <span class="fw-bold">Celular: </span>
+                                    <span class="txtForm">${usuario.celular_trabajador}</span>
+                                </div>
+                                <div class="col-6">
+                                    <span class="fw-bold">Usuario: </span>
+                                    <span class="txtForm">${usuario.nombre_usuario}</span>
+                                </div>
                             </div>
-                            <div class="div-input-form-row">
-                                <input class="txtFieldForm" type="text" readonly style="background-color:lightgray;" name="txtNombre" id="txtNombre" value="${usuario.nombre_trabajador}">
+
+                            <div>
+                                <span class="fw-bold">Usuario: </span>
+                                <span class="txtForm">${usuario.nombre_usuario}</span>
                             </div>
-                        </div>
+                            <div>
+                                <span class="fw-bold">Contraseña: </span>
                         
-                        <p class="text-danger d-none" id="txtErrorNombre">El nombre del usuario debe contener al menos 2 caracteres</p>
-                        <div class="mt-2">
-                            <div class="div-txt-form-row">
-                                <span class="txtForm">Apellido</span>
+                                <span class="txtForm" type="password">${"•".repeat(usuario.contrasena.length)}</span>
                             </div>
-                            <div class="div-input-form-row">
-                                <input class="txtFieldForm" type="text" readonly style="background-color:lightgray;" name="txtApellido" id="txtApellido" value="${usuario.apellido_trabajador}"
+                            <div>
+                                <span class="fw-bold">Código de Cargo: </span>
+                                <span class="txtForm">${usuario.cod_cargo}</span>
                             </div>
-                        </div>
-                        <span class="text-danger d-none" id="txtErrorApellido">El nombre del usuario debe contener al menos 2 caracteres</span>
-                        
-                        <div>
-                            <div class="div-txt-form-row mt-2">
-                                <span class="txtForm">DNI</span>
-                            </div>
-                            <div class="mb-1">
-                                <input type="text" name="txtDNI" id="txtDNI" readonly style="background-color:lightgray;" value="${usuario.dni_trabajador}">
-                            </div>
-                        </div>
-                        <span class="text-danger d-none" id="txtErrorDNI">El DNI debe contener 8 dígitos</span>
-
-                        <div class="mt-2">
-                            <div class="div-txt-form-row">
-                                <span class="txtForm">Celular</span>
-                            </div>
-                            <div class="mb-1">
-                                <input type="text" name="txtCelular" readonly style="background-color:lightgray;" id="txtCelular" value="${usuario.celular_trabajador}">
-                            </div>
-                        </div>
-                        <span class="text-danger d-none" id="txtErrorCelular">El celular debe contener 9 dígitos y empezar por 9</span>
-
-                        <div class="mt-2">
-                            <div class="div-txt-form-row">
-                                <span class="txtForm">Usuario</span>
-                            </div>
-                            <div class="div-input-form-row">
-                                <input class="txtFieldForm" readonly style="background-color:lightgray;" type="text" name="txtUsuario" id="txtUsuario" autocomplete="off" value="${usuario.nombre_usuario}">
-                            </div>
-                        </div>
-                        <span class="text-danger d-none" id="txtErrorUsuario">El usuario ingresado no es admitido</span>
-
-                        <div class="mt-2">
-                            <div class="div-txt-form-row">
-                                <span class="txtForm">Contraseña</span>
-                            </div>
-                            <div class="div-input-form-row">
-                                <input class="txtFieldForm" readonly style="background-color:lightgray;" type="password" name="txtPassword" id="txtPassword" autocomplete="none" value="${usuario.contrasena}">
-                            </div>
-                        </div>
-                        <p class="text-danger d-none mt-1" id="txtErrorPassword">La contrasña ingresada no es admitida</p>
-
-                        <div class="mt-2">
-                            <div class="div-txt-form-row">
-                                <span class="txtForm">Código de Cargo</span>
-                            </div>
-                            <div class="mb-1">
-                                <input class="txtFieldForm" readonly style="background-color:lightgray;" type="text" name="txtCargo" id="txtCargo" value="${usuario.cod_cargo}">
-                            </div>
-                            <span class="text-danger d-none" id="txtErrorCargo">El código de cargo debe ser un número</span>
+                
                         </div>
 
                         <input class="mt-3 btn border btn-danger" type="submit" name="btnEliminar" id="btnEliminar" value="Eliminar">

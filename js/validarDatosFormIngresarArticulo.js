@@ -86,6 +86,10 @@ $('#formBuscarArticulo').submit(function(e){
                     let articulo = JSON.parse(response);
                     let temp = '';
                     temp = `
+                        <div class="mt-3 mb-2">
+                            <span class="fs-5">Detalles del Artículo</span>
+                        </div>
+                        
                         <div class="mt-2 border p-3">
                             <div class="d-flex">
                                 <div class="col-6">

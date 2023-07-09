@@ -108,65 +108,109 @@ $('#formBuscarDevolucion').submit(function(e){
                     cantidad = pedido.cantidad;
                     template = '';
                     template += `
-                        <div class="div-form-row">
-                            <div class="div-txt-form-row">
-                                <span class="txtForm">Código de Pedido</span>
+                        <div class="mt-3 mb-2">
+                            <span class="h3">Detalles del Pedido</span>
+                        </div>
+                        
+                        <div class="p-3 border">
+                            <div class="d-flex">
+                                <div class="col-6">
+                                    <div class="d-flex">
+                                        <div>
+                                            <span class="txtForm">Código de Pedido</span>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex">
+                                        <div>
+                                            <input class="form-control" readonly style="background-color:lightgray;" type="text" name="txtCodigo" id="txtCodigo" value="${pedido.cod_registro_pedido}">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="d-flex">
+                                        <div>
+                                            <span>Código de Solicitante</span>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex">
+                                        <div>
+                                            <input class="form-control" style="background-color:lightgray;" readonly type="text" name="txtCodigoSolicitante" id="txtCodigoSolicitante" value="${pedido.cod_cliente}">
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="div-input-form-row">
-                                <input class="txtFieldFormReadonly" readonly style="background-color:lightgray;" type="text" name="txtCodigo" id="txtCodigo" value="${pedido.cod_registro_pedido}">
+                            <div class="d-flex">
+                                <div class="col-6">
+                                    <div class="d-flex">
+                                        <div>
+                                            <span class="txtForm">Estado</span>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex">
+                                        <div>
+                                            <input class="form-control" style="background-color:lightgray;" readonly type="text" name="txtEstado" id="txtEstado" value="${pedido.estado_pedido}">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="d-flex">
+                                        <div>
+                                            <span class="txtForm">Fecha de Inicio</span>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex">
+                                        <div>
+                                            <input class="form-control" style="background-color:lightgray;" readonly type="text" name="txtFecha" id="txtFecha" value="${pedido.fecha_inicio}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex">
+                                <div class="col-12">
+                                    <div class="d-flex">
+                                        <div>
+                                            <span class="txtForm">Fecha de Vencimiento</span>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex">
+                                        <div>
+                                            <input class="form-control" style="background-color:lightgray;" readonly type="text" name="txtFechaVencimiento" id="txtFechaVencimiento" value="${pedido.fecha_vencimiento}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex">
+                                <div class="col-12">
+                                    <div class="d-flex">
+                                        <div>
+                                            <span class="txtForm">Fecha de Devolución</span>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex">
+                                        <div>
+                                            <input class="form-control" type="date" name="fecha_devolucion" id="fecha_devolucion">
+                                        </div>
+                                    </div>
+                                    <p class="d-none text-danger" id="txtErrorFecha">La fecha está incompleta</p>
+                                </div>
+                            </div>
+                            <div class="d-flex">
+                                <div class="col-12">
+                                    <div class="d-flex">
+                                        <div>
+                                            <span class="txtForm">Detalles</span>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex">
+                                        <div>
+                                            <textarea class="form-control" name="txtaDetalles" id="txtaDetalles"></textarea>
+                                        </div>
+                                    </div>
+                                    <p class="d-none text-danger" id="txtaErrorDetalles">Ha excedido el límite de caracteres</p>
+                                </div>
                             </div>
                         </div>
-                        <div class="div-form-row">
-                            <div class="div-txt-form-row">
-                                <span class="txtForm">Código de Solicitante</span>
-                            </div>
-                            <div class="div-input-form-row">
-                                <input class="txtFieldFormReadonly" style="background-color:lightgray;" readonly type="text" name="txtCodigoSolicitante" id="txtCodigoSolicitante" value="${pedido.cod_cliente}">
-                            </div>
-                        </div>
-                        <div class="div-form-row">
-                            <div class="div-txt-form-row">
-                                <span class="txtForm">Estado</span>
-                            </div>
-                            <div class="div-input-form-row">
-                                <input class="txtFieldFormReadonly" style="background-color:lightgray;" readonly type="text" name="txtEstado" id="txtEstado" value="${pedido.estado_pedido}">
-                            </div>
-                        </div>
-                        <div class="div-form-row">
-                            <div class="div-txt-form-row">
-                                <span class="txtForm">Fecha de Inicio</span>
-                            </div>
-                            <div class="div-input-form-row">
-                                <input class="txtFieldFormReadonly" style="background-color:lightgray;" readonly type="text" name="txtFecha" id="txtFecha" value="${pedido.fecha_inicio}">
-                            </div>
-                        </div>
-                        <div class="div-form-row">
-                            <div class="div-txt-form-row">
-                                <span class="txtForm">Fecha de Vencimiento</span>
-                            </div>
-                            <div class="div-input-form-row">
-                                <input class="txtFieldFormReadonly" style="background-color:lightgray;" readonly type="text" name="txtFechaVencimiento" id="txtFechaVencimiento" value="${pedido.fecha_vencimiento}">
-                            </div>
-                        </div>
-                        <div class="div-form-row">
-                            <div class="div-txt-form-row">
-                                <span class="txtForm">Fecha de Devolución</span>
-                            </div>
-                            <div class="div-input-form-row">
-                                <input class="dateForm" type="date" name="fecha_devolucion" id="fecha_devolucion">
-                            </div>
-                        </div>
-                        <p class="d-none text-danger" id="txtErrorFecha">La fecha está incompleta</p>
-                        <div class="div-form-row">
-                            <div class="div-txt-form-row">
-                                <span class="txtForm">Detalles</span>
-                            </div>
-                            <div class="div-input-form-row">
-                                <textarea class="txtAreaForm" name="txtaDetalles" id="txtaDetalles"></textarea>
-                            </div>
-                        </div>
-                        <p class="d-none text-danger" id="txtaErrorDetalles">Ha excedido el límite de caracteres</p>
-                        <input class="button-submit" type="submit" name="btnDevolver" id="btnDevolver" value="Devolver Pedido">
+                        <input class="btn border btn-primary mt-3" type="submit" name="btnDevolver" id="btnDevolver" value="Devolver Pedido">
                     `;
                     document.getElementById('divDevolverPedido').innerHTML = template;
                     const formRegistrarDevolucionInputs = document.querySelectorAll('#formRegistrarDevolucion input');

@@ -69,40 +69,37 @@ $('#formBuscarArticulo').submit(function(e){
                     let articulo = JSON.parse(response);
                     let temp = '';
                     temp = `
-                        <div class="div-form-row">
-                            <div class="div-txt-form-row">
-                                <span class="txtForm">Código</span>
-                            </div>
-                            <div class="div-input-form-row">
-                                <input class="txtFieldFormReadonly" readonly type="text" style="background-color:lightgray;" name="txtCodigo" id="txtCodigo" value="${articulo.cod_producto}">
-                            </div>
+                        <div class="mt-3">
+                            <span class="h4">Artículo</span>
                         </div>
-                        <div class="div-form-row">
-                            <div class="div-txt-form-row">
-                                <span class="txtForm">Nombre</span>
+                        
+                        <div class="mt-2 border p-3">
+                            <div class="d-flex">
+                                <div class="col-6">
+                                    <div>
+                                        <span class="fw-bold">Código: </span>
+                                        <span class="txtForm">${articulo.cod_producto}</span>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div>
+                                        <span class="fw-bold">Nombre: </span>
+                                        <span class="txtForm">${articulo.nom_producto}</span>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="div-input-form-row">
-                                <input class="txtFieldFormReadonly" readonly type="text" style="background-color:lightgray;" name="txtNombre" id="txtNombre" value="${articulo.nom_producto}">
+                        
+                            <div>
+                                <span class="fw-bold">Cantidad: </span>
+                                <span class="txtForm">${articulo.cantidad_stock}</span>
                             </div>
-                        </div>
-                        <div class="div-form-row">
-                            <div class="div-txt-form-row">
-                                <span class="txtForm">Cantidad</span>
-                            </div>
-                            <div class="div-input-form-row">
-                                <input class="txtFieldFormReadonly" type="text" style="background-color:lightgray;" readonly name="txtCantidad" id="txtCantidad" value="${articulo.cantidad_stock}">
-                            </div>
-                        </div>
-                        <div class="div-form-row">
-                            <div class="div-txt-form-row">
-                                <span class="txtForm">Detalles</span>
-                            </div>
-                            <div class="div-input-form-row">
-                                <input class="txtFieldFormReadonly" type="text" style="background-color:lightgray;" readonly name="txtDescripcion" id="txtDescripcion" value="${articulo.descripcion}">
+                            <div>
+                                <span class="fw-bold">Descripción: </span>
+                                <span class="txtForm">${articulo.descripcion}</span>
                             </div>
                         </div>
 
-                        <input class="mt-3 btn border btn-primary" type="submit" name="btnEliminar" id="btnEliminar" value="Eliminar">
+                        <input class="mt-3 btn border btn-danger" type="submit" name="btnEliminar" id="btnEliminar" value="Eliminar">
                     `;
                     document.getElementById('divEliminarArticulo').innerHTML = temp;
                     const formModificarArticuloInputs = document.querySelectorAll('#formModificarArticulo input');

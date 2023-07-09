@@ -89,7 +89,7 @@
 
         public function getPedidosReporte(){
             $con = mysqli_connect('localhost','root','','db_app_dw'); 
-            $sql = "SELECt * FROM registro_pedido WHERE fecha_inicio >= DATE_SUB(CURDATE(), INTERVAL 1 MONTH) AND fecha_inicio <= CURDATE()";
+            $sql = "SELECT * FROM registro_pedido WHERE fecha_inicio >= DATE_FORMAT(CURDATE(), '%Y-%m-01') AND fecha_inicio <= CURDATE();";
             $result = mysqli_query($con,$sql);
             return($result);
         }

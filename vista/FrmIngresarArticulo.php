@@ -28,8 +28,8 @@
                     </div>
                 </div>
                     <div class="container-fluid">
-                        <div class="row flex-nowrap">
-                            <div class="bg-dark col-auto col-md-2 min-vh-100">
+                        <div class="row flex-nowrap col-12">
+                            <div class="bg-dark col-md-2 col-auto min-vh-100">
                                 <div class="bg-dark p-2">
                                     <a class="d-flex text-decoration-none align-items-center text-white">
                                         <i class="fs-5 fa fa-guage"></i><span class="fs-4 d-none d-sm-inline"></span>
@@ -61,22 +61,31 @@
                                     </ul>
                                 </div>
                             </div>
-                            <div class="col-auto col-md-10 min-vh-100 justify-content-center m-5">
+                            <div class="col-auto min-vh-100 justify-content-center ps-5 pt-5 pe-0">
                                 <div class="div-buscar">
-                                    <h1 class="h1 text-center">Ingresar Artículo</h1>
-                                    <form id="formBuscarArticulo" method="post">
-                                        <p class="txtFormBuscar">Buscar Código</p>
-                                        <input class="txtFieldForm" name="txtCodigoBuscar" type="text" id="txtCodigoBuscar">
-                                        <button class="button-search" type="submit" name="btnBuscar" id="btnBuscar">
-                                            <img class="icon-buscar" src="../img/icons/lupa.png" style="height: 20px;">
-                                        </button>
-                                        <button type="button" class="button-ver" name="btnVerArticulos" id="btnVerArticulos" title="Ver Artículos" onClick="verArticulos()">
-                                            <img class="icon-menu" src="../img/icons/tabla.png" style="height: 20px;">Ver Articulos
-                                        </button>
+                                    <h1 class="h2">Ingresar Artículo</h1>
+                                    <form id="formBuscarArticulo" method="post" class="mt-3">
+                                        <div class="d-flex">
+                                            <div>
+                                                <input class="form-control" name="txtCodigoBuscar" type="text" id="txtCodigoBuscar" placeholder="Código de Artículo">
+                                            </div>
+                                            <div class="ms-2">
+                                                <button class="btn border" type="submit" name="btnBuscar" id="btnBuscar">
+                                                    <img class="icon-buscar" src="../img/icons/lupa.png" style="height: 20px;">
+                                                </button>
+                                            </div>
+                                            <div class="ms-1">
+                                                <button type="button" class="btn border" name="btnVerArticulos" id="btnVerArticulos" title="Ver Artículos" onClick="verArticulos()">
+                                                    <img class="icon-menu" src="../img/icons/tabla.png" style="height: 20px;"> Ver Articulos
+                                                </button>
+                                            </div>
+                                            
+                                        </div>
+                                        
                                         <p class="text-danger d-none" id="txtErrorCodigo">El código de artículo debe contener un número entre 1001 y 9999</p>
                                     </form>
                                 </div>
-                                <form id="formRetirarArticulo">
+                                <form id="formIngresarArticulo">
                                     <div id="divForm" class="div-Form">
                 
                                     </div>
@@ -89,7 +98,7 @@
                 
                 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
                 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-                <script src="../js/validarDatosformRetirarArticulo.js"></script>
+                <script src="../js/validarDatosformIngresarArticulo.js"></script>
             </body>
             </html>
         <?php

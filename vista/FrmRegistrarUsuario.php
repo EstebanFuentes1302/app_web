@@ -67,10 +67,10 @@
                                         <form id="formRegistrarUsuario" method="post" >
                                             <div class="div-form-row">
                                                 <div class="div-txt-form-row">
-                                                    <span class="txtForm">Nombre</span>
+                                                    <span>Nombre</span>
                                                 </div>
                                                 <div class="div-input-form-row">
-                                                    <input class="txtFieldForm" type="text" name="txtNombre" id="txtNombre">
+                                                    <input class="form-control" type="text" name="txtNombre" id="txtNombre">
                                                 </div>
                                             </div>
                                             
@@ -80,7 +80,7 @@
                                                     <span class="txtForm">Apellido</span>
                                                 </div>
                                                 <div class="div-input-form-row">
-                                                    <input class="txtFieldForm" type="text" name="txtApellido" id="txtApellido">
+                                                    <input class="form-control" type="text" name="txtApellido" id="txtApellido">
                                                 </div>
                                             </div>
                                             <span class="text-danger d-none" id="txtErrorApellido">El nombre del usuario debe contener al menos 2 caracteres</span>
@@ -90,7 +90,7 @@
                                                     <span class="txtForm">DNI</span>
                                                 </div>
                                                 <div class="mb-1">
-                                                    <input type="text" name="txtDNI" id="txtDNI">
+                                                    <input type="text" name="txtDNI" id="txtDNI" class="form-control">
                                                 </div>
                                             </div>
                                             <span class="text-danger d-none" id="txtErrorDNI">El DNI debe contener 8 dígitos</span>
@@ -100,7 +100,7 @@
                                                     <span class="txtForm">Celular</span>
                                                 </div>
                                                 <div class="mb-1">
-                                                    <input type="text" name="txtCelular" id="txtCelular">
+                                                    <input type="text" name="txtCelular" id="txtCelular" class="form-control">
                                                 </div>
                                             </div>
                                             <span class="text-danger d-none" id="txtErrorCelular">El celular debe contener 9 dígitos y empezar por 9</span>
@@ -110,7 +110,7 @@
                                                     <span class="txtForm">Usuario</span>
                                                 </div>
                                                 <div class="div-input-form-row">
-                                                    <input class="txtFieldForm" type="text" name="txtUsuario" id="txtUsuario" autocomplete="off">
+                                                    <input class="form-control" type="text" name="txtUsuario" id="txtUsuario" autocomplete="off">
                                                 </div>
                                             </div>
                                             <span class="text-danger d-none" id="txtErrorUsuario">El usuario ingresado no es admitido</span>
@@ -120,7 +120,7 @@
                                                     <span class="txtForm">Contraseña</span>
                                                 </div>
                                                 <div class="div-input-form-row">
-                                                    <input class="txtFieldForm" type="password" name="txtPassword" id="txtPassword" autocomplete="none">
+                                                    <input class="form-control" type="password" name="txtPassword" id="txtPassword" autocomplete="none">
                                                 </div>
                                             </div>
                                             <p class="text-danger d-none mt-1" id="txtErrorPassword">La contrasña ingresada no es admitida</p>
@@ -130,7 +130,7 @@
                                                     <span class="txtForm">Código de Cargo</span>
                                                 </div>
                                                 <div class="mb-1">
-                                                    <input class="txtFieldForm" type="text" name="txtCargo" id="txtCargo">
+                                                    <input class="form-control" type="text" name="txtCargo" id="txtCargo">
                                                 </div>
                                                 <span class="text-danger d-none" id="txtErrorCargo">El código de cargo debe ser un número</span>
                                             </div>

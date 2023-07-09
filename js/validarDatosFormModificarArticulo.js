@@ -8,7 +8,7 @@ const formBuscarArticuloInputs = document.querySelectorAll('#formBuscarArticulo 
 
 const expresiones = {
     codigo: /^\d+$/,
-    form_nombre: /^((\w|[ \u0021-\u002f]|[\u00c0-\u00ff])+){2,}/,
+    form_nombre: /^[^'"]*$/,
     form_cantidad: /^\d+$/
 }
 
@@ -25,12 +25,12 @@ const validadFormBuscarArticulo = (e) => {
     switch(e.target.name){
         case "txtCodigoBuscar":
             if(expresiones.codigo.test(e.target.value)){
-                document.getElementById('txtCodigoBuscar').classList.remove('txtFieldFormIncorrecto');
-                document.getElementById('txtErrorCodigo').classList.remove('txtErrorShow');
+                document.getElementById('txtCodigoBuscar').classList.remove('border-danger');
+                document.getElementById('txtErrorCodigo').classList.add('d-none');
                 camposBuscar['codigo']=true;
             }else{
-                document.getElementById('txtCodigoBuscar').classList.add('txtFieldFormIncorrecto');
-                document.getElementById('txtErrorCodigo').classList.add('txtErrorShow');
+                document.getElementById('txtCodigoBuscar').classList.add('border-danger');
+                document.getElementById('txtErrorCodigo').classList.remove('d-none');
                 camposBuscar['codigo']=false;
             }
             break;
@@ -41,23 +41,23 @@ const validarFormModificarArticulo = (e) => {
     switch(e.target.name){
         case "txtNombre":
             if(expresiones.form_nombre.test(e.target.value)){
-                document.getElementById('txtNombre').classList.remove('txtFieldFormIncorrecto');
-                document.getElementById('txtErrorNombre').classList.remove('txtErrorShow');
+                document.getElementById('txtNombre').classList.remove('border-danger');
+                document.getElementById('txtErrorNombre').classList.add('d-none');
                 camposModificar['nombre']=true;
             }else{
-                document.getElementById('txtNombre').classList.add('txtFieldFormIncorrecto');
-                document.getElementById('txtErrorNombre').classList.add('txtErrorShow');
+                document.getElementById('txtNombre').classList.add('border-danger');
+                document.getElementById('txtErrorNombre').classList.remove('d-none');
                 camposModificar['nombre']=false;
             }
         break;
         case "txtCantidad":
             if(expresiones.form_cantidad.test(e.target.value)){
-                document.getElementById('txtCantidad').classList.remove('txtFieldFormIncorrecto');
-                document.getElementById('txtErrorCantidad').classList.remove('txtErrorShow');
+                document.getElementById('txtCantidad').classList.remove('border-danger');
+                document.getElementById('txtErrorCantidad').classList.add('d-none');
                 camposModificar['cantidad']=true;
             }else{
-                document.getElementById('txtCantidad').classList.add('txtFieldFormIncorrecto');
-                document.getElementById('txtErrorCantidad').classList.add('txtErrorShow');
+                document.getElementById('txtCantidad').classList.add('border-danger');
+                document.getElementById('txtErrorCantidad').classList.remove('d-none');
                 camposModificar['cantidad']=false;
             }
         break;
@@ -97,40 +97,61 @@ $('#formBuscarArticulo').submit(function(e){
                     let articulo = JSON.parse(response);
                     let temp = '';
                     temp = `
-                        <div class="div-form-row">
-                            <div class="div-txt-form-row">
-                                <span class="txtForm">Código</span>
+                        <div class="mt-3 mb-2">
+                            <span class="h3">Artículo</span>
+                        </div>
+                        <div>
+                            <div class="d-flex">
+                                <div>
+                                    <div class="div-txt-form-row">
+                                        <span class="txtForm">Código</span>
+                                    </div>
+                                    <div class="div-input-form-row">
+                                        <input class="form-control" style="background-color:lightgray;" readonly type="text" name="txtCodigo" id="txtCodigo" value="${articulo.cod_producto}">
+                                    </div>
+                                </div>
                             </div>
-                            <div class="div-input-form-row">
-                                <input class="txtFieldFormReadonly" style="background-color:lightgray;" readonly type="text" name="txtCodigo" id="txtCodigo" value="${articulo.cod_producto}">
+                            <div class="d-flex">
+                                <div>
+                                    <div class="div-txt-form-row">
+                                        <span class="txtForm">Nombre</span>
+                                    </div>
+                                    <div class="div-input-form-row">
+                                        <input class="form-control" type="text" name="txtNombre" id="txtNombre" value="${articulo.nom_producto}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-1 ms-1">
+                                <p class="text-danger d-none mb-0" id="txtErrorNombre">El nombre del artículo debe contener más de 2 dígitos y no permite (",')</p>
+                            </div>
+                            
+                            <div class="d-flex">
+                                <div>
+                                    <div class="div-txt-form-row">
+                                        <span class="txtForm">Cantidad</span>
+                                    </div>
+                                    <div class="div-input-form-row">
+                                        <input class="form-control" type="text" name="txtCantidad" id="txtCantidad" value="${articulo.cantidad_stock}">
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <div class="mt-1 ms-1">
+                                <p class="text-danger d-none mb-0" id="txtErrorCantidad">La cantidad debe ser un número entero</p>
+                            </div>
+
+                            <div class="d-flex">
+                                <div>
+                                    <div class="div-txt-form-row">
+                                        <span class="txtForm">Descripción</span>
+                                    </div>
+                                    <div class="div-input-form-row">
+                                        <input class="form-control" type="text" name="txtaDescripcion" id="txtaDescripcion" value="${articulo.descripcion}">
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="div-form-row">
-                            <div class="div-txt-form-row">
-                                <span class="txtForm">Nombre</span>
-                            </div>
-                            <div class="div-input-form-row">
-                                <input class="txtFieldForm" type="text" name="txtNombre" id="txtNombre" value="${articulo.nom_producto}">
-                            </div>
-                        </div>
-                        <p class="text-danger d-none" id="txtErrorNombre">El nombre del artículo debe contener más de 2 dígitos</p>
-                        <div class="div-form-row">
-                            <div class="div-txt-form-row">
-                                <span class="txtForm">Cantidad</span>
-                            </div>
-                            <div class="div-input-form-row">
-                                <input class="txtFieldForm" type="text" name="txtCantidad" id="txtCantidad" value="${articulo.cantidad_stock}">
-                            </div>
-                        </div>
-                        <p class="text-danger d-none" id="txtErrorCantidad">La cantidad debe ser un número entero</p>
-                        <div class="div-form-row">
-                            <div class="div-txt-form-row">
-                                <span class="txtForm">Descripción</span>
-                            </div>
-                            <div class="div-input-form-row">
-                                <input class="txtFieldForm" type="text" name="txtaDescripcion" id="txtaDescripcion" value="${articulo.descripcion}">
-                            </div>
-                        </div>
+
                         <input class="mt-3 btn border btn-primary" type="submit" name="btnModificar" id="btnModificar" value="Modificar">
                     `;
                     document.getElementById('divForm').innerHTML = temp;

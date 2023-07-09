@@ -154,8 +154,11 @@ function buscarUsuario(){
                             <div class="div-txt-form-row">
                                 <span class="txtForm">Código</span>
                             </div>
-                            <div class="div-input-form-row">
-                                <input class="txtFieldForm" readonly style="background-color:lightgray;" type="text" name="txtCodigo" id="txtCodigo" value="${usuario.cod_trabajador}">
+                            <div class="d-flex">
+                                <div>
+                                    <input class="form-control" readonly style="background-color:lightgray;" type="text" name="txtCodigo" id="txtCodigo" value="${usuario.cod_trabajador}">
+                                </div>   
+                                
                             </div>
                         </div>
 
@@ -163,8 +166,11 @@ function buscarUsuario(){
                             <div class="div-txt-form-row">
                                 <span class="txtForm">Nombre</span>
                             </div>
-                            <div class="div-input-form-row">
-                                <input class="txtFieldForm" type="text" name="txtNombre" id="txtNombre" value="${usuario.nombre_trabajador}">
+                            <div class="d-flex">
+                                <div>
+                                    <input class="form-control" type="text" name="txtNombre" id="txtNombre" value="${usuario.nombre_trabajador}">
+                                </div>
+                                
                             </div>
                         </div>
                         
@@ -173,8 +179,11 @@ function buscarUsuario(){
                             <div class="div-txt-form-row">
                                 <span class="txtForm">Apellido</span>
                             </div>
-                            <div class="div-input-form-row">
-                                <input class="txtFieldForm" type="text" name="txtApellido" id="txtApellido" value="${usuario.apellido_trabajador}"
+                            <div class="d-flex">
+                                <div>
+                                    <input class="form-control" type="text" name="txtApellido" id="txtApellido" value="${usuario.apellido_trabajador}">
+                                </div>
+                                
                             </div>
                         </div>
                         <span class="text-danger d-none" id="txtErrorApellido">El nombre del usuario debe contener al menos 2 caracteres</span>
@@ -183,8 +192,11 @@ function buscarUsuario(){
                             <div class="div-txt-form-row mt-2">
                                 <span class="txtForm">DNI</span>
                             </div>
-                            <div class="mb-1">
-                                <input type="text" name="txtDNI" id="txtDNI" readonly style="background-color:lightgray;" value="${usuario.dni_trabajador}">
+                            <div class="d-flex mb-1">
+                                <div>
+                                    <input class="form-control" type="text" name="txtDNI" id="txtDNI" readonly style="background-color:lightgray;" value="${usuario.dni_trabajador}">
+                                </div>
+                                
                             </div>
                         </div>
                         <span class="text-danger d-none" id="txtErrorDNI">El DNI debe contener 8 dígitos</span>
@@ -193,8 +205,11 @@ function buscarUsuario(){
                             <div class="div-txt-form-row">
                                 <span class="txtForm">Celular</span>
                             </div>
-                            <div class="mb-1">
-                                <input type="text" name="txtCelular" id="txtCelular" value="${usuario.celular_trabajador}">
+                            <div class="d-flex mb-1">
+                                <div>
+                                    <input class="form-control" type="text" name="txtCelular" id="txtCelular" value="${usuario.celular_trabajador}">
+                                </div>
+                                
                             </div>
                         </div>
                         <span class="text-danger d-none" id="txtErrorCelular">El celular debe contener 9 dígitos y empezar por 9</span>
@@ -203,8 +218,10 @@ function buscarUsuario(){
                             <div class="div-txt-form-row">
                                 <span class="txtForm">Usuario</span>
                             </div>
-                            <div class="div-input-form-row">
-                                <input class="txtFieldForm" type="text" name="txtUsuario" id="txtUsuario" autocomplete="off" value="${usuario.nombre_usuario}">
+                            <div class="d-flex mb-1">
+                                <div>
+                                    <input class="form-control" type="text" name="txtUsuario" id="txtUsuario" autocomplete="off" value="${usuario.nombre_usuario}">
+                                </div>
                             </div>
                         </div>
                         <span class="text-danger d-none" id="txtErrorUsuario">El usuario ingresado no es admitido</span>
@@ -213,8 +230,11 @@ function buscarUsuario(){
                             <div class="div-txt-form-row">
                                 <span class="txtForm">Contraseña</span>
                             </div>
-                            <div class="div-input-form-row">
-                                <input class="txtFieldForm" type="password" name="txtPassword" id="txtPassword" autocomplete="none" value="${usuario.contrasena}">
+                            <div class="d-flex">
+                                <div>
+                                    <input class="form-control" type="password" name="txtPassword" id="txtPassword" autocomplete="none" value="${usuario.contrasena}">
+                                </div>
+                                
                             </div>
                         </div>
                         <p class="text-danger d-none mt-1" id="txtErrorPassword">La contrasña ingresada no es admitida</p>
@@ -223,8 +243,10 @@ function buscarUsuario(){
                             <div class="div-txt-form-row">
                                 <span class="txtForm">Código de Cargo</span>
                             </div>
-                            <div class="mb-1">
-                                <input class="txtFieldForm" type="text" name="txtCargo" id="txtCargo" value="${usuario.cod_cargo}">
+                            <div class="d-flex mb-1">
+                                <div>
+                                    <input class="form-control" type="text" name="txtCargo" id="txtCargo" value="${usuario.cod_cargo}">
+                                </div>
                             </div>
                             <span class="text-danger d-none" id="txtErrorCargo">El código de cargo debe ser un número</span>
                         </div>

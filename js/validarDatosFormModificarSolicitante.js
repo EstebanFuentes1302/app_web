@@ -143,86 +143,124 @@ $('#formBuscarSolicitante').submit(function(e){
                     let solicitante = JSON.parse(response);
                     let template = '';
                     template+= `
-                        <div class="div-form-row">
-                            <div class="div-txt-form-row">
-                                <span class="txtForm">Código</span>
-                            </div>
-                            <div class="div-input-form-row">
-                                <input class="txtFieldFormReadonly" readonly style="background-color:lightgray;" type="text" name="txtCodigo" id="txtCodigo" value="${solicitante.cod_cliente}">
-                            </div>
+                        <div class="mt-3 mb-2">
+                            <span class="h3">Cliente</span>
                         </div>
-                        <div class="div-form-row">
-                            <div class="div-txt-form-row">
-                                <span class="txtForm">Nombre</span>
-                            </div>
-                            <div class="div-input-form-row">
-                                <input class="txtFieldForm" type="text" name="txtNombre" id="txtNombre" value="${solicitante.nom_cliente}">
-                            </div>
-                        </div>
-                        <p class="text-danger d-none" id="txtErrorNombre">El nombre debe tener 2 dígitos como mínimo</p>
-                        <div class="div-form-row">
-                            <div class="div-txt-form-row">
-                                <span class="txtForm">Apellido</span>
-                            </div>
-                            <div class="div-input-form-row">
-                                <input class="txtFieldForm" type="text" name="txtApellido" id="txtApellido" value="${solicitante.ape_cliente}">
-                            </div>
-                        </div>
-                        <p class="text-danger d-none" id="txtErrorApellido">El apellido debe tener 2 dígitos como mínimo</p>
-
-                        <div class="div-form-row">
-                            <div class="div-txt-form-row">
-                                <span class="txtForm">DNI</span>
-                            </div>
-                            <div class="div-input-form-row">
-                                <input class="txtFieldFormReadonly" readonly style="background-color:lightgray;" type="text" name="txtDNI" id="txtDNI" value="${solicitante.dni}">
-                            </div>
-                        </div>
-
-                        <div class="div-form-row">
-                            <div class="div-txt-form-row">
-                                <span class="txtForm">Direccion</span>
-                            </div>
-                            <div class="div-input-form-row">
-                                <input class="txtFieldFormReadonly" type="text" name="txtDireccion" id="txtDireccion" value="${solicitante.direccion}">
-                            </div>
-                        </div>
-                        <p class="text-danger d-none" id="txtErrorDireccion">La dirección es incorrecta</p>
                         
-                        <div class="div-form-row">
-                            <div class="div-txt-form-row">
-                                <span class="txtForm">Escuela Profesional</span>
-                            </div>
-                            <div class="div-input-form-row">
-                                <input class="txtFieldFormReadonly" type="text" name="txtEscuela" id="txtEscuela" value="${solicitante.escuela_profesional}">
-                            </div>
-                        </div>
-
-                        <div class="div-form-row">
-                            <div class="div-txt-form-row">
-                                <span class="txtForm">Teléfono</span>
-                            </div>
-                            <div class="div-input-form-row">
-                                <input class="txtFieldFormReadonly" type="text" name="txtTelefono" id="txtTelefono" value="${solicitante.celular}">
-                            </div>
-                        </div>
-                        <p class="text-danger d-none" id="txtErrorTelefono">El número de celular debe tener 9 dígitos y empezar por 9</p>
-
-                        <div class="mt-2">
-                            <div>
-                                <p class="m-0">Estado</p>
-                            </div>
+                        <div class="p-3 border">
                             <div class="d-flex">
-                                <div>
-                                    <select id="sEstadoCliente" class="form-select">
-                                        <option value="Activo">Activo</option>
-                                        <option value="Suspendido">Suspendido</option>
-                                        <option value="Deudor">Deudor</option>
-                                    </select>
+                                <div class="col-6">
+                                    <div class="d-flex">
+                                        <div>
+                                            <span class="fs-6">Código</span>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex">
+                                        <div>
+                                            <input class="form-control" readonly style="background-color:lightgray;" type="text" name="txtCodigo" id="txtCodigo" value="${solicitante.cod_cliente}">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="d-flex">
+                                        <div>
+                                            <span class="txtForm">Nombre</span>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex">
+                                        <div>
+                                            <input class="form-control" type="text" name="txtNombre" id="txtNombre" value="${solicitante.nom_cliente}">
+                                        </div>
+                                    </div>
+                                    <p class="text-danger d-none" id="txtErrorNombre">El nombre debe tener 2 dígitos como mínimo</p>
+                                </div>
+                            </div>
+                            <div class="d-flex mt-2">
+                                <div class="col-6">
+                                    <div class="d-flex">
+                                        <div>
+                                            <span>Apellido</span>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex">
+                                        <div>
+                                            <input class="form-control" type="text" name="txtApellido" id="txtApellido" value="${solicitante.ape_cliente}">
+                                        </div>
+                                    </div>
+                                    <p class="text-danger d-none" id="txtErrorApellido">El apellido debe tener 2 dígitos como mínimo</p>
+                                </div>
+                                <div class="col-6">
+                                    <div class="d-flex">
+                                        <div>
+                                            <span>DNI</span>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex">
+                                        <div>
+                                            <input class="form-control" readonly style="background-color:lightgray;" type="text" name="txtDNI" id="txtDNI" value="${solicitante.dni}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex mt-2">
+                                <div class="col-6">
+                                    <div class="d-flex">
+                                        <div>
+                                            <span>Direccion</span>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex">
+                                        <div>
+                                            <input class="form-control" type="text" name="txtDireccion" id="txtDireccion" value="${solicitante.direccion}">
+                                        </div>
+                                    </div>
+                                    <p class="text-danger d-none" id="txtErrorDireccion">La dirección es incorrecta</p>
+                                </div>
+                                <div class="col-6">
+                                    <div class="d-flex">
+                                        <div>
+                                            <span>Escuela Profesional</span>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex">
+                                        <div>
+                                            <input class="form-control" type="text" name="txtEscuela" id="txtEscuela" value="${solicitante.escuela_profesional}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex mt-2">
+                                <div class="col-6">
+                                    <div class="d-flex">
+                                        <div>
+                                            <span class="txtForm">Teléfono</span>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex">
+                                        <div>
+                                            <input class="form-control" type="text" name="txtTelefono" id="txtTelefono" value="${solicitante.celular}">
+                                        </div>
+                                    </div>
+                                    <p class="text-danger d-none" id="txtErrorTelefono">El número de celular debe tener 9 dígitos y empezar por 9</p>
+                                </div>
+                                <div class="col-6">
+                                    <div class="d-flex">
+                                        <div>
+                                            <p class="m-0">Estado</p>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex">
+                                        <div>
+                                            <select id="sEstadoCliente" class="form-select">
+                                                <option value="Activo">Activo</option>
+                                                <option value="Suspendido">Suspendido</option>
+                                                <option value="Deudor">Deudor</option>
+                                            </select>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-
                         <input class="btn border btn-primary mt-3" type="submit" name="btnModificar" id="btnModificar" value="Modificar">
                     `;
 
@@ -283,8 +321,6 @@ $('#formModificarSolicitante').submit(function(e){
         estado: $('#sEstadoCliente').val()
     }
 
-    //let dataModificar={codigo, nombre, cantidad}
-    //console.log(JSON.stringify(dataModificar));
     console.log(camposModificar);
     if(camposModificar['nombre'] && camposModificar['apellido'] && camposModificar['direccion'] && camposModificar['escuela'] && camposModificar['telefono']){
         $.ajax({

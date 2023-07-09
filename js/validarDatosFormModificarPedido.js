@@ -119,7 +119,8 @@ function buscarPedido(){
                                 <div>
                                     <select id="sEstado" class="form-select">
                                         <option value="Ejecución">Ejecución</option>
-                                        <option value="Devuelto">Devuelto</option>
+                                        <option value="Devuelto">Entregado</option>
+                                        <option value="Devuelto">Por Entregar</option>
                                     </select>
                                 </div>
                             </div>
