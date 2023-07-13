@@ -67,6 +67,17 @@
             }
         }
 
+        public function getCargo($usuario){
+            $con = mysqli_connect('localhost','root','','db_app_dw'); 
+            $sql="select cod_cargo from usuario where nombre_usuario='$usuario'";
+            $query=mysqli_query($con,$sql);
+            if($query){
+                return(mysqli_fetch_array($query));
+            }else{
+                return(false);
+            }
+        }
+
     }
     
 ?>

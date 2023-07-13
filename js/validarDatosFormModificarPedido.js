@@ -137,7 +137,7 @@ function buscarPedido(){
                         </div>
                         <div class="div-form-row">
                             <div class="div-txt-form-row">
-                                <span class="txtForm">Fecha de Inicio</span>
+                                <span class="txtForm">Fecha de Vencimiento</span>
                             </div>
                             <div class="d-flex">
                                 <div>

@@ -35,29 +35,58 @@
                                         <i class="fs-5 fa fa-guage"></i><span class="fs-4 d-none d-sm-inline"></span>
                                     </a>
                                     <ul class="nav nav-pills flex-column mt-2">
-                                        <li class="nav-item">
-                                            <a href="<?php $_SERVER['DOCUMENT_ROOT']?>/app_web/controlador/CtrlShowMenuPedido.php" class="nav-link text-white">
-                                                <i class="bi bi-box-fill"></i><span>Gestión de Pedidos</span>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="<?php $_SERVER['DOCUMENT_ROOT']?>/app_web/controlador/CtrlShowMenuCliente.php" class="nav-link text-white">Gestionar Cliente</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="<?php $_SERVER['DOCUMENT_ROOT']?>/app_web/controlador/CtrlShowMenuDevolucion.php" class="nav-link text-white">Gestionar Devolución</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="<?php $_SERVER['DOCUMENT_ROOT']?>/app_web/controlador/CtrlShowMenuCatalogo.php" class="nav-link text-white active">Gestionar Catálogo</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="<?php $_SERVER['DOCUMENT_ROOT']?>/app_web/controlador/CtrlShowReporte.php" class="nav-link text-white">Reporte</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="<?php $_SERVER['DOCUMENT_ROOT']?>/app_web/controlador/CtrlShowMenuInventario.php" class="nav-link text-white">Gestionar Inventario</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="<?php $_SERVER['DOCUMENT_ROOT']?>/app_web/controlador/CtrlShowMenuUsuario.php" class="nav-link text-white">Gestionar Usuario</a>
-                                        </li>
+                                    <?php
+                                        include_once('../modelo/Usuario.php');
+                                        $usuario = new Usuario;
+                                        $cargo = $usuario->getCargo($_SESSION['usuario'])['cod_cargo'];
+                                        if($cargo=='1'){
+                                            ?>
+                                                <li class="nav-item">
+                                                <a href="<?php $_SERVER['DOCUMENT_ROOT']?>/app_web/controlador/CtrlShowMenuPedido.php" class="nav-link text-white">
+                                                    <i class="bi bi-box-fill"></i><span>Gestión de Pedidos</span>
+                                                </a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a href="<?php $_SERVER['DOCUMENT_ROOT']?>/app_web/controlador/CtrlShowMenuCliente.php" class="nav-link text-white">Gestionar Cliente</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a href="<?php $_SERVER['DOCUMENT_ROOT']?>/app_web/controlador/CtrlShowMenuDevolucion.php" class="nav-link text-white">Gestionar Devolución</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a href="<?php $_SERVER['DOCUMENT_ROOT']?>/app_web/controlador/CtrlShowMenuCatalogo.php" class="nav-link text-white active">Gestionar Catálogo</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a href="<?php $_SERVER['DOCUMENT_ROOT']?>/app_web/controlador/CtrlShowReporte.php" class="nav-link text-white">Reporte</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a href="<?php $_SERVER['DOCUMENT_ROOT']?>/app_web/controlador/CtrlShowMenuInventario.php" class="nav-link text-white">Gestionar Inventario</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a href="<?php $_SERVER['DOCUMENT_ROOT']?>/app_web/controlador/CtrlShowMenuUsuario.php" class="nav-link text-white">Gestionar Usuario</a>
+                                                </li>
+                                        <?php
+                                        }else{
+                                        ?>
+                                                <li class="nav-item">
+                                                <a href="<?php $_SERVER['DOCUMENT_ROOT']?>/app_web/controlador/CtrlShowMenuPedido.php" class="nav-link text-white">
+                                                    <i class="bi bi-box-fill"></i><span>Gestión de Pedidos</span>
+                                                </a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a href="<?php $_SERVER['DOCUMENT_ROOT']?>/app_web/controlador/CtrlShowMenuCliente.php" class="nav-link text-white">Gestionar Cliente</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a href="<?php $_SERVER['DOCUMENT_ROOT']?>/app_web/controlador/CtrlShowMenuDevolucion.php" class="nav-link text-white">Gestionar Devolución</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a href="<?php $_SERVER['DOCUMENT_ROOT']?>/app_web/controlador/CtrlShowMenuCatalogo.php" class="nav-link text-white">Gestionar Catálogo</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a href="<?php $_SERVER['DOCUMENT_ROOT']?>/app_web/controlador/CtrlShowReporte.php" class="nav-link text-white">Reporte</a>
+                                                </li>
+                                        <?php
+                                        }
+                                        ?>
                                     </ul>
                                 </div>
                             </div>
